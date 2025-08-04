@@ -10,6 +10,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
+
 # check if ssh to localhost is enablesd
 if ssh -o BatchMode=yes -o ConnectTimeout=5 localhost 'exit' 2>/dev/null; then
   echo "SSH to localhost works - may continue."
