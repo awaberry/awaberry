@@ -269,7 +269,6 @@ if [ -f "$deviceConnectSuccessFile" ]; then
   echo "https://app.awaberry.com - login with your account and select the device to connect to it"
   devi
 
-
 else
   echo "device uuid is not linked with awaBerry"
   linkDeviceAwaberryLobby
