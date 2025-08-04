@@ -93,6 +93,10 @@ installAwaberryClient() {
       echo "installation successful"
 
       echo "start the awaberry client as service now"
+      if ! brew services stop awaberry; then
+        echo "brew service is not yet running (e.g. from previous installs)"
+        # handle the error or exit
+      fi
       brew services start awaberry
 
   else

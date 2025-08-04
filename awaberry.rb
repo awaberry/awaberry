@@ -3,7 +3,7 @@ class Awaberry < Formula
   homepage "https://www.awaberry.com"
   url "https://raw.githubusercontent.com/awaberry/awaberry/main/macbrewinstaller.sh"
   version "1.0.0"
-  sha256 "fe359c630358f57c23d0cbc4d803711e78f0e203d6e37186bc59acf02af7174f"
+  sha256 "4322b4031c3817f0cca6fb763f0f295a0d68ea4bca2a34234cc48fde2e4dc40a"
 
   depends_on "screen"
   depends_on "jq"
@@ -27,7 +27,7 @@ class Awaberry < Formula
 service do
   run [
     "sh",
-    "#{ENV["HOME"]}/awaberry/awaberryclient/app/runawaberryclient.sh"
+    "#{ENV["HOME"]}/awaberry/awaberryclient/update/update.sh" "#{ENV["HOME"]}/awaberry/awaberryclient/app/runawaberryclient.sh"
   ]
   working_dir "#{ENV["HOME"]}/awaberry/awaberryclient/app"
   log_path "#{ENV["HOME"]}/awaberry/awaberry.log"
