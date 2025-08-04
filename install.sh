@@ -11,15 +11,15 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 # check if ssh to localhost is enablesd
-if ssh -o BatchMode=yes -o ConnectTimeout=5 localhost 'exit' 2>/dev/null; then
-  echo "SSH to localhost works - may continue."
-else
+if ssh -o BatchMode=yes -o ConnectTimeout=5 localhost 'exit' 2>&1 | grep -qi 'refused'; then
   echo "SSH to localhost failed."
   echo "Please ensure that remote login is enabled in System Preferences > Sharing."
   echo "See https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac"
   echo ""
   echo "Note that it is sufficient to have ssh from machine to localhost working - external ssh access is not required and can be blocked."
   exit 1
+else
+  echo "SSH to localhost works - may continue."
 fi
 
 cd $HOME/Downloads
