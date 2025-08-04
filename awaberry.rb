@@ -14,8 +14,8 @@ class Awaberry < Formula
   depends_on "openjdk@21"
 
   def install
-    # this brew script is used to get the required depends_on
-    # installation will be called from install script
+    bin.install "macbrewinstaller.sh" => "awaberry"
+    chmod 0755, bin/"awaberry"
   end
 
 # brew services list - list of services
