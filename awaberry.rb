@@ -1,9 +1,9 @@
 class Awaberry < Formula
-  desc "AwaBerry installer for macOS"
+  desc "AwaBerry installer for macOS (brew based)"
   homepage "https://www.awaberry.com"
   url "https://raw.githubusercontent.com/awaberry/awaberry/main/macbrewinstaller.sh"
   version "1.0.0"
-  sha256 "2bc54bc982bc601ec455949aa29cde1477ac58159a640559ab56302e2d65abe2"
+  sha256 "cac29d7e906808cca4bd86f20dacad65fbae403b1a76ffb59af6b9a25ceef63b"
 
   depends_on "screen"
   depends_on "jq"
