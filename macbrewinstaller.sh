@@ -90,11 +90,18 @@ installAwaberryClient() {
   ./install.sh
   tver=$?
   if [ "$tver" == "0" ]; then
-      echo "update successful"
+      echo "installation successful"
+
+      echo "start the awaberry client as service now"
+      brew services start awaberry
+
   else
     echo "install failed - exit"
     exit 1
   fi
+
+
+
 }
 
 
