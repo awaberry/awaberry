@@ -23,7 +23,6 @@ else
   exit 1
 fi
 
-
 cd $HOME/Downloads
 mkdir awaberryinstall
 cd awaberryinstall
