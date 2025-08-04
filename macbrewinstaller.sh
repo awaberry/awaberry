@@ -10,7 +10,6 @@ apiToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6I
 awaberryDir="$HOME"
 awaberryHomeDir=$awaberryDir
 
-
 awaberryMainDir="$awaberryDir/awaberry/"
 
 # for storing the awaberry relevant config files

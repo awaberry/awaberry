@@ -3,7 +3,7 @@ class Awaberry < Formula
   homepage "https://www.awaberry.com"
   url "https://raw.githubusercontent.com/awaberry/awaberry/main/macbrewinstaller.sh"
   version "1.0.0"
-  sha256 "96f37d9029321ee2fe77bfa7bbecf35468dbc09089a22308cf7864afcaae0f9a"
+  sha256 "02dad7bd6ca81a1b38c0a97aa54db59027956cedbfecbf0f0e4121a83c32bcdf"
 
   depends_on "screen"
   depends_on "jq"
@@ -17,6 +17,7 @@ class Awaberry < Formula
     bin.install "macbrewinstaller.sh" => "awaberry"
     chmod 0755, bin/"awaberry"
   end
+
 
 # downlod install script
 # curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/install.sh -o install.sh
