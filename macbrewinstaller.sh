@@ -40,6 +40,7 @@ mkdir -p "$sshcertssDirectory"
 
 userHomeDir="$HOME"
 userHomeDirSsh="$userHomeDir/.ssh"
+mkdir -p "$userHomeDirSsh"
 
 directoryAwaberryClient="$awaberryHomeDataDir/awaberryclient"
 
