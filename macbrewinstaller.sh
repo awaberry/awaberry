@@ -45,6 +45,9 @@ directoryAwaberryClient="$awaberryHomeDataDir/awaberryclient"
 
 # the default home dir for file browser: $Home/Downloads - exists by default
 
+# write the path to java for brew
+brew --prefix openjdk@21 > "$awaberryHomeDataDir/java.txt"
+
 
 # Check for required commands
 for cmd in jq curl base64 openssl ssh-keygen; do
