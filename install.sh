@@ -10,7 +10,6 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-
 echo "1) downloading the awaberry.rb script"
 curl -s https://raw.githubusercontent.com/awaberry/awaberry/awaberry.rb -o awaberry.rb
 
