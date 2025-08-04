@@ -12,7 +12,7 @@ fi
 
 
 echo "1) downloading the awaberry.rb script"
-curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/awaberry.sh -o awaberry.rb
+curl -s https://raw.githubusercontent.com/awaberry/awaberry/awaberry.sh -o awaberry.rb
 
 echo "2) installing the awaberry.rb script"
 brew reinstall --build-from-source ./awaberry.rb
