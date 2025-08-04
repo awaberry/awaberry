@@ -21,6 +21,8 @@ echo "3) installing the awaberry client"
 chmod +x macbrewinstaller.sh
 ./macbrewinstaller.sh
 
+echo ""
+echo "4) installation complete."
 
 
 
