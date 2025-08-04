@@ -20,6 +20,7 @@ else
   echo "See https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac"
   echo ""
   echo "Note that it is sufficient to have ssh from machine to localhost working - external ssh access is not required and can be blocked."
+  exit 1
 fi
 
 
