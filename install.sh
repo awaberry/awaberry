@@ -10,6 +10,10 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
+cd $HOME/Downloads
+mkdir awaberryinstall
+cd awaberryinstall
+
 echo "1) downloading the awaberry.rb installation scripts"
 curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/awaberry.rb -o awaberry.rb
 curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/macbrewinstaller.sh -o macbrewinstaller.sh

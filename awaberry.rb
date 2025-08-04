@@ -18,6 +18,9 @@ class Awaberry < Formula
     chmod 0755, bin/"awaberry"
   end
 
+# downlod install script
+# curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/install.sh -o install.sh
+
 # brew services list - list of services
 # brew reinstall --build-from-source ./awaberry.rb
 # brew services start awaberry - start the service
@@ -27,12 +30,12 @@ class Awaberry < Formula
 service do
   run [
     "sh",
-    "#{ENV["HOME"]}/awaberry/awaberryclient/update/update.sh" "#{ENV["HOME"]}/awaberry/awaberryclient/app/runawaberryclient.sh"
+    "-c",
+    "#{ENV["HOME"]}/awaberry/awaberryclient/update/update.sh && #{ENV["HOME"]}/awaberry/awaberryclient/app/runawaberryclient.sh"
   ]
   working_dir "#{ENV["HOME"]}/awaberry/awaberryclient/app"
   log_path "#{ENV["HOME"]}/awaberry/awaberry.log"
   error_log_path "#{ENV["HOME"]}/awaberry/error.log"
-
 end
 
   def plist
