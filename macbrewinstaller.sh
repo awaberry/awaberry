@@ -263,8 +263,13 @@ linkDeviceAwaberryLobby() {
 
 echo "check $deviceConnectSuccessFile"
 if [ -f "$deviceConnectSuccessFile" ]; then
-  deviceuuid=$(cat "$deviceuuidfile")
-  echo "device uuid is already linked with awaBerry- deviceuuid is $deviceuuid"
+  devicename=$(cat "$devicenamefile")
+  echo "device uuid is already linked with awaBerry"
+  echo "You can connect to the device with the name: $devicename"
+  echo "https://app.awaberry.com - login with your account and select the device to connect to it"
+  devi
+
+
 else
   echo "device uuid is not linked with awaBerry"
   linkDeviceAwaberryLobby
