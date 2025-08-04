@@ -267,13 +267,10 @@ if [ -f "$deviceConnectSuccessFile" ]; then
   echo "device uuid is already linked with awaBerry"
   echo "You can connect to the device with the name: $devicename"
   echo "https://app.awaberry.com - login with your account and select the device to connect to it"
-  devi
 
 else
   echo "device uuid is not linked with awaBerry"
   linkDeviceAwaberryLobby
-
-
 
   generateCertificates
   installAwaberryClient
