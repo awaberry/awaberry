@@ -16,7 +16,7 @@ if ssh -o BatchMode=yes -o ConnectTimeout=5 localhost 'exit' 2>&1 | grep -qi 're
   echo "Please ensure that remote login is enabled in System Preferences > Sharing."
   echo "See https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac"
   echo ""
-  echo "Note that it is sufficient to have ssh from machine to localhost working - external ssh access is not required and can be blocked."
+  echo "Note that it is sufficient to have ssh from machine to localhost working, i.e. sshd-client in firewall can be set to 'block incoming connections'."
   exit 1
 else
   echo "SSH to localhost works - may continue."

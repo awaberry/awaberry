@@ -72,6 +72,19 @@ done
 installAwaberryClient() {
 
   cd $awaberryMainDir || exit 1
+
+  # set file to block unencrypted connections to true
+
+  sshEncryptedSettingFile=$awabonHomeDataDir/sshencryption.txt
+
+  if [ ! -f "$sshEncryptedSettingFile" ]; then
+    echo "1" > "$sshEncryptedSettingFile"
+    echo "SSH encryption setting file created with value 1 (encrypted connections only)."
+  else
+    echo "SSH encryption setting file already exists."
+  fi
+
+
   echo "install awaberryclient in $directoryAwaberryClient"
 
   deploymentServerUrl="https://data.dl.awaberry.com/data"

@@ -18,7 +18,6 @@ class Awaberry < Formula
     chmod 0755, bin/"awaberry"
   end
 
-
 # downlod install script
 # curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/install.sh -o install.sh
 
