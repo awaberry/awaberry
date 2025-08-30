@@ -3,7 +3,7 @@ awaBerry - Secure and Seamless Remote Access to Devices and Automation
 
 Access your devices via web browser from anywhere - requires no ssh, no VPN, no port forwarding, no open firewall ports!
 
-Homepage: https://www.awaberry.com
+Homepage: https://www.awaberry.com.
 
 The awaBerry web application is available via https://app.awaberry.com.
 
