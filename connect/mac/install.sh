@@ -27,8 +27,8 @@ mkdir awaberryinstall
 cd awaberryinstall
 
 echo "1) downloading the awaberry.rb installation scripts"
-curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/awaberry.rb -o awaberry.rb
-curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/macbrewinstaller.sh -o macbrewinstaller.sh
+curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/awaberry.rb -o awaberry.rb
+curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh -o macbrewinstaller.sh
 
 echo "2) installing the awaberry.rb script"
 brew reinstall --build-from-source ./awaberry.rb
