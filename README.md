@@ -41,6 +41,13 @@ A test page for the API is available via https://app.awaberry.com/agentic
 API Client Implementations
 ----------------
 
+
+Bash / Shell
+----
+see folder apiclients/bash.
+Please start from the readme.txt in this folder.
+
+
 Python
 ----
 see folder apiclients/python.
