@@ -41,6 +41,7 @@ A test page for the API is available via https://app.awaberry.com/agentic
 API Client Implementations
 ----------------
 
+Api client implementations are available for the following programming languages in folder agentic:
 
 Bash / Shell
 ----
