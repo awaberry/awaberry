@@ -23,7 +23,7 @@ Agentic
 ========
 
 awaBerry agentic allows to access devices connected to awaBerry Remote via an API.
-This allows to automate tasks via scripts and to integrate them into agentic frameworks.
+Automate tasks via scripts and to integrate them into agentic frameworks.
 
 Setup projects via Agentic to receive API keys for access to the API.
 
