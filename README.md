@@ -5,7 +5,8 @@ Access your devices via web browser from anywhere - requires no ssh, no VPN, no 
 
 Homepage: https://awaberry.com
 
-The awaBerry web application is available via https://app.awaberry.com
+The awaBerry web application is available via https://app.awaberry.com.
+
 Please create an account to use awaBerry Remote, awaBerry Connect and awaBerry Agentic.
 
 Connect
