@@ -3,7 +3,7 @@ class Awaberry < Formula
   homepage "https://www.awaberry.com"
   url "https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh"
   version "1.0.0"
-  sha256 "00fb47a20a7387f0342d9a97db8f3c9e202810575dda3f5825ddd50f0bf98635"
+  sha256 "5b6041bdebc1194144d3648ab570537dc7beb2f228098bab4b6b3faa27f986fc"
 
   depends_on "screen"
   depends_on "jq"
