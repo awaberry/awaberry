@@ -31,7 +31,7 @@ curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/awa
 curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh -o macbrewinstaller.sh
 
 echo "2) installing the awaberry.rb script"
-brew reinstall --build-from-source ./awaberry.rb
+brew install awaberry/awaberry/awaberry
 
 echo "3) installing the awaberry client"
 chmod +x macbrewinstaller.sh
