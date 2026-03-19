@@ -2,8 +2,8 @@ class Awaberry < Formula
   desc "AwaBerry installer for macOS (brew based)"
   homepage "https://www.awaberry.com"
   url "https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh"
-  version "1.0.0"
-  sha256 "5b6041bdebc1194144d3648ab570537dc7beb2f228098bab4b6b3faa27f986fc"
+  version "1.3.29"
+  sha256 "64a631248ef1f1cdbdc372a77cefdc2246784e4b6b2a2cb44d68fc6d26e2caa9"
 
   depends_on "screen"
   depends_on "jq"
@@ -16,60 +16,55 @@ class Awaberry < Formula
   def install
     bin.install "macbrewinstaller.sh" => "awaberry"
     chmod 0755, bin/"awaberry"
+
+    # Create a named service launcher in libexec.
+    # macOS uses the binary basename as the background-item display name,
+    # so naming this script "awaberry" makes System Settings show "awaberry"
+    # instead of "sh".
+    launcher = libexec/"awaberry"
+    launcher.write <<~EOS
+      #!/bin/bash
+      # Run update if it exists (non-fatal - do not block the client on failure)
+      if [ -x "$HOME/awaberry/awaberryclient/update/update.sh" ]; then
+        "$HOME/awaberry/awaberryclient/update/update.sh" || true
+      fi
+      # Replace this shell process with the client (exec = no extra process layer)
+      exec "$HOME/awaberry/awaberryclient/app/runawaberryclient.sh"
+    EOS
+    chmod 0755, launcher
   end
 
-# downlod install script
-# curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/install.sh -o install.sh
 
-# brew services list - list of services
-# brew reinstall --build-from-source ./awaberry.rb
-# brew services start awaberry - start the service
-# brew services stop awaberry - stop the service
-
-
-service do
-  run [
-    "sh",
-    "-c",
-    "#{ENV["HOME"]}/awaberry/awaberryclient/update/update.sh && #{ENV["HOME"]}/awaberry/awaberryclient/app/runawaberryclient.sh"
-  ]
-  working_dir "#{ENV["HOME"]}/awaberry/awaberryclient/app"
-  log_path "#{ENV["HOME"]}/awaberry/awaberry.log"
-  error_log_path "#{ENV["HOME"]}/awaberry/error.log"
-end
-
-  def plist
+  def caveats
     <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>com.awabon.awaberryclient</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>java</string>
-            <string>-Xmx64m</string>
-            <string>-cp</string>
-            <string>awaberryclient.jar:lib/*</string>
-            <string>com.awabon.client.mainapp.MainAppAwaberryClient</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{ENV["HOME"]}/awaberry/awaberryclient/app</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardOutPath</key>
-          <string>#{ENV["HOME"]}/awaberryclient/.awaberrydata/execution.log</string>
-          <key>StandardErrorPath</key>
-          <string>#{ENV["HOME"]}/awaberry/execution.log</string>
-        </dict>
-      </plist>
+      awaberry client installer has run and the background service has been started.
+
+      To verify the service is running:
+        brew services list
+
+      Useful commands:
+        brew services start awaberry   – start  (and enable autostart on login)
+        brew services stop  awaberry   – stop   (and disable autostart)
     EOS
   end
 
+  # brew services list                   – list services
+  # brew services start awaberry         – start & register autostart on login/reboot
+  # brew services stop  awaberry         – stop & unregister autostart
+  # brew reinstall --build-from-source ./awaberry.rb
+
+  service do
+    # Run the named launcher so macOS reports "awaberry" in background items
+    run [opt_libexec/"awaberry"]
+    # keep_alive restarts the service if it exits and re-registers it after reboot
+    keep_alive true
+    working_dir "#{ENV["HOME"]}/awaberry/awaberryclient/app"
+    log_path     "#{ENV["HOME"]}/awaberry/awaberry.log"
+    error_log_path "#{ENV["HOME"]}/awaberry/error.log"
+  end
 
   test do
-    if File.exist?('>#{ENV["HOME"]}/awaberry/.awaberrydata/execution.log')
+    if File.exist?("#{ENV["HOME"]}/awaberry/.awaberrydata/execution.log")
       puts "Log file for awaberry exists - client is up."
     else
       puts "File does not exist."

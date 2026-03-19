@@ -282,6 +282,7 @@ linkDeviceAwaberryLobby() {
   echo "1" > "$deviceconnectedfile"
   echo "1" > "$deviceConnectSuccessFile"
   echo "device is now available in your device list at https://app.awaberry.com"
+
 }
 
 

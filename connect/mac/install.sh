@@ -10,7 +10,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-# check if ssh to localhost is enablesd
+# check if ssh to localhost is enabled
 if ssh -o BatchMode=yes -o ConnectTimeout=5 localhost 'exit' 2>&1 | grep -qi 'refused'; then
   echo "SSH to localhost failed."
   echo "Please ensure that remote login is enabled in System Preferences > Sharing."
@@ -22,23 +22,23 @@ else
   echo "SSH to localhost works - may continue."
 fi
 
-cd $HOME/Downloads
-mkdir awaberryinstall
-cd awaberryinstall
+echo "1) adding the awaberry tap"
+brew tap awaberry/awaberry
 
-echo "1) downloading the awaberry.rb installation scripts"
-curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/awaberry.rb -o awaberry.rb
-curl -s https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh -o macbrewinstaller.sh
+echo "2) installing awaberry"
+# The short name 'awaberry' works once the tap is added above.
+# post_install inside the formula will automatically run the client
+# installer and start the background service.
+brew install awaberry
 
-echo "2) installing the awaberry.rb script"
-brew install awaberry/awaberry/awaberry
-
-echo "3) installing the awaberry client"
-chmod +x macbrewinstaller.sh
-./macbrewinstaller.sh
+echo "3) starting the awaberry service"
+brew services start awaberry
 
 echo ""
-echo "4) installation complete."
-
-
-
+echo "Installation complete."
+echo "The awaberry service is running and will start automatically on login/reboot."
+echo ""
+echo "To manage the service:"
+echo "  brew services start awaberry"
+echo "  brew services stop  awaberry"
+echo "  brew services list"
