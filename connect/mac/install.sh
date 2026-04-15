@@ -42,6 +42,8 @@ echo "3) linking client with awaberry"
 curl https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh -o macbrewinstaller.sh
 chmod +x macbrewinstaller.sh
 ./macbrewinstaller.sh
+rm -rf macbrewinstaller.sh
+rm -rf install.sh
 
 echo "4) starting the awaberry service"
 brew services start awaberry
