@@ -34,6 +34,7 @@ echo "2) installing awaberry"
 # installer and start the background service.
 brew install awaberry
 
+
 brew services stop awaberry
 
 echo "3) linking client with awaberry"
