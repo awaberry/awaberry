@@ -39,7 +39,7 @@ brew services stop awaberry
 
 
 echo "3) linking client with awaberry"
-curl https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh
+curl https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbrewinstaller.sh -o macbrewinstaller.sh
 chmod +x macbrewinstaller.sh
 ./macbrewinstaller.sh
 
