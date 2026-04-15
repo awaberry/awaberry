@@ -42,7 +42,7 @@ curl https://raw.githubusercontent.com/awaberry/awaberry/main/connect/mac/macbre
 chmod +x macbrewinstaller.sh
 ./macbrewinstaller.sh
 
-echo "3) starting the awaberry service"
+echo "4) starting the awaberry service"
 brew services start awaberry
 
 echo ""
