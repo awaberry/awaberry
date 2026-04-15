@@ -22,6 +22,9 @@ else
   echo "SSH to localhost works - may continue."
 fi
 
+echo "update brew"
+brew update
+
 echo "1) adding the awaberry tap"
 brew tap awaberry/awaberry
 
