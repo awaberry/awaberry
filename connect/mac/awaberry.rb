@@ -14,8 +14,7 @@ class Awaberry < Formula
   depends_on "openjdk@21"
 
   def install
-    bin.install "macbrewinstaller.sh" => "awaberry"
-    chmod 0755, bin/"awaberry"
+
 
     # Create a named service launcher in libexec.
     # macOS uses the binary basename as the background-item display name,
@@ -33,6 +32,7 @@ class Awaberry < Formula
     EOS
     chmod 0755, launcher
   end
+
 
 
   def caveats

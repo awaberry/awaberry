@@ -34,6 +34,11 @@ echo "2) installing awaberry"
 # installer and start the background service.
 brew install awaberry
 
+brew services stop awaberry
+
+echo "3) linking client with awaberry"
+./macbrewinstaller.sh
+
 echo "3) starting the awaberry service"
 brew services start awaberry
 
